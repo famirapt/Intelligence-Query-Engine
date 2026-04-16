@@ -89,6 +89,7 @@ def read_root():
             "create_profile": "/api/profiles (POST)",
             "list_profiles": "/api/profiles (GET)"
         }
+    }
 
 @app.get("/api/profiles")
 def get_all_profiles(
