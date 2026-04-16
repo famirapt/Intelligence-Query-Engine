@@ -79,6 +79,17 @@ async def create_profile(payload: dict, db: Session = Depends(get_db)):
     db.refresh(new_profile)
     return {"status": "success", "data": new_profile}
 
+@app.get("/")
+def read_root():
+    return {
+        "message": "Welcome to the Profile Classifier API!",
+        "status": "online",
+        "docs_url": "/docs",
+        "endpoints": {
+            "create_profile": "/api/profiles (POST)",
+            "list_profiles": "/api/profiles (GET)"
+        }
+
 @app.get("/api/profiles")
 def get_all_profiles(
     gender: str = None, 
