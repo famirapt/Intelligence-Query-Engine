@@ -1,7 +1,7 @@
 
-```
+### README.md
 
-### **README.md**
+```markdown
 # Insighta Labs: Intelligence Query Engine
 
 A production-grade Demographic Intelligence API built with FastAPI. This system serves as a high-performance query engine capable of segmenting large datasets through advanced filtering and rule-based Natural Language Processing.
@@ -79,3 +79,6 @@ All errors return a standardized JSON structure:
 **Author:** [Your Name]  
 **Task:** HNG Internship Stage 2 - Backend Track
 ```
+
+Your documentation files are ready:
+[file-tag: code-generated-file-1-1776924510324878700]
