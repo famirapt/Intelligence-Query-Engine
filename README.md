@@ -1,4 +1,7 @@
-```markdown
+
+```
+
+### **README.md**
 # Insighta Labs: Intelligence Query Engine
 
 A production-grade Demographic Intelligence API built with FastAPI. This system serves as a high-performance query engine capable of segmenting large datasets through advanced filtering and rule-based Natural Language Processing.
