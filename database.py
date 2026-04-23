@@ -5,10 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timezone
 from uuid6 import uuid7
 
-# Railway or local Postgres URL
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:pass@localhost:5432/db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./insighta.db")
 
-engine = create_engine(DATABASE_URL)
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(DATABASE_URL)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -19,10 +22,10 @@ class Profile(Base):
     name = Column(String, unique=True, index=True, nullable=False)
     gender = Column(String)
     gender_probability = Column(Float)
-    sample_size = Column(Integer)
     age = Column(Integer)
     age_group = Column(String)
-    country_id = Column(String)
+    country_id = Column(String(2))
+    country_name = Column(String) # Required for Stage 2
     country_probability = Column(Float)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
